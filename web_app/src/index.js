@@ -3,11 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import {compose, createStore, applyMiddleware, combineReducers} from "redux";
+import thunkMiddleware from 'redux-thunk';
+import {BrowserRouter} from "react-router-dom";
+import {contactsReducer} from "./store/reducers/contactsReducer";
+import {formReducer} from "./store/reducers/formReducer";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const rootReducer = combineReducers({
+    contacts: contactsReducer,
+    form: formReducer
+});
+
+const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
