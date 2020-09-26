@@ -13,6 +13,7 @@ const initialState = {
     photo: '',
     error: null,
     sendInfo: false,
+    loading: false
 };
 
 export const formReducer = (state = initialState, action) => {

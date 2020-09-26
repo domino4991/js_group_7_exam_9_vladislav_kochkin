@@ -3,9 +3,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {getContacts, removeContact, showModalHandler} from "../../store/actions/contactsActions";
 import ContactsItems from "../../components/ContactsItems/ContactsItems";
 import ContactModal from "../../components/UI/ContactModal/ContactModal";
+import {Sugar} from "react-preloaders";
 
 const MainPage = () => {
-    const {contactsItems, showModal, contactInfo} = useSelector(state => state.contacts);
+    const {
+        contactsItems,
+        showModal,
+        contactInfo,
+        loading
+    } = useSelector(state => state.contacts);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -14,12 +20,13 @@ const MainPage = () => {
 
     return (
         <section className="Main-page">
-            {showModal && <ContactModal
+            <Sugar customLoading={loading} />
+            <ContactModal
                 show={showModal}
                 contact={contactInfo}
                 closed={() => dispatch(showModalHandler(false))}
                 clicked={() => dispatch(removeContact(contactInfo.id, contactsItems))}
-            />}
+            />
             <h2>Main page</h2>
             {contactsItems && <ContactsItems
                 contacts={contactsItems}

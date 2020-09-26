@@ -4,6 +4,7 @@ import Form from "../../components/UI/Form/Form";
 import {Redirect} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {changedFieldForm, getEditContact, redirectToHomePage, sendEditContact} from "../../store/actions/formActions";
+import {Sugar} from "react-preloaders";
 
 const EditPage = props => {
     const {
@@ -11,7 +12,8 @@ const EditPage = props => {
         phone,
         photo,
         email,
-        sendInfo
+        sendInfo,
+        loading
     } = useSelector(state => state.form);
 
     const dispatch = useDispatch();
@@ -32,6 +34,7 @@ const EditPage = props => {
 
     return (
         <section className="Edit-page">
+            <Sugar customLoading={loading} />
             <div className="container Edit-page__inner">
                 <h2 className="Title">Edit contact</h2>
                 {name && <Form
