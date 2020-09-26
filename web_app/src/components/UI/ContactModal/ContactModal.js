@@ -4,12 +4,13 @@ import Backdrop from "../Backdrop/Backdrop";
 import {NavLink} from "react-router-dom";
 
 const ContactModal = props => {
-
     let phone;
-    let phoneCopy = props.contact.phone;
-    if(Number(phoneCopy[0]) === 0) {
-        phoneCopy[0].replace('0', '');
-        phone = phoneCopy;
+    if(props.contact) {
+        let phoneCopy = props.contact.phone;
+        if(Number(phoneCopy[0]) === 0) {
+            phoneCopy[0].replace('0', '');
+            phone = phoneCopy;
+        }
     }
     return (
         <>
