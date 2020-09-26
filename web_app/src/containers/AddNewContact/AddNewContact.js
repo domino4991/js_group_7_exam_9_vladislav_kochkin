@@ -11,7 +11,8 @@ const AddNewContact = () => {
         phone,
         photo,
         email,
-        sendInfo
+        sendInfo,
+        error
     } = useSelector(state => state.form);
     const dispatch = useDispatch();
 
@@ -30,15 +31,20 @@ const AddNewContact = () => {
 
     return (
         <section className='New-contact'>
-            <h2 className="Title">Add new contact</h2>
-            <Form
-                name={name}
-                photo={photo}
-                email={email}
-                phone={phone}
-                changed={e => dispatch(changedFieldForm(e))}
-                submited={e => onSubmitNewContactHandler(e, name, phone, email, photo)}
-            />
+            {
+                error ? <h1 style={{textAlign: 'center'}}>{error.message}</h1> :
+                    <>
+                        <h2 className="Title">Add new contact</h2>
+                        <Form
+                            name={name}
+                            photo={photo}
+                            email={email}
+                            phone={phone}
+                            changed={e => dispatch(changedFieldForm(e))}
+                            submited={e => onSubmitNewContactHandler(e, name, phone, email, photo)}
+                        />
+                    </>
+            }
         </section>
     );
 };

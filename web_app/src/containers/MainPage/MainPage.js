@@ -11,7 +11,8 @@ const MainPage = () => {
         contactsItems,
         showModal,
         contactInfo,
-        loading
+        loading,
+        error
     } = useSelector(state => state.contacts);
     const dispatch = useDispatch();
 
@@ -23,18 +24,23 @@ const MainPage = () => {
     return (
         <section className="Main-page">
             <Sugar customLoading={loading} />
-            <ContactModal
-                show={showModal}
-                contact={contactInfo}
-                closed={() => dispatch(showModalHandler(false))}
-                clicked={() => dispatch(removeContact(contactInfo.id, contactsItems))}
-            />
-            <h2 className="Title">Contacts list</h2>
-            <div className="container">
-                {contactsItems && <ContactsItems
-                    contacts={contactsItems}
-                />}
-            </div>
+            {
+                error ? <h1 style={{textAlign: 'center'}}>{error.message}</h1> :
+                    <>
+                        <ContactModal
+                            show={showModal}
+                            contact={contactInfo}
+                            closed={() => dispatch(showModalHandler(false))}
+                            clicked={() => dispatch(removeContact(contactInfo.id, contactsItems))}
+                        />
+                        <h2 className="Title">Contacts list</h2>
+                        <div className="container">
+                            {contactsItems && <ContactsItems
+                                contacts={contactsItems}
+                            />}
+                        </div>
+                    </>
+            }
         </section>
     );
 };

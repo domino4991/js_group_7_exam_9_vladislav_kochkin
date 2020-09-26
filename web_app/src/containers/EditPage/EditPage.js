@@ -13,7 +13,8 @@ const EditPage = props => {
         photo,
         email,
         sendInfo,
-        loading
+        loading,
+        error
     } = useSelector(state => state.form);
 
     const dispatch = useDispatch();
@@ -35,17 +36,22 @@ const EditPage = props => {
     return (
         <section className="Edit-page">
             <Sugar customLoading={loading} />
-            <div className="container Edit-page__inner">
-                <h2 className="Title">Edit contact</h2>
-                {name && <Form
-                    name={name}
-                    phone={phone}
-                    email={email}
-                    photo={photo}
-                    changed={e => dispatch(changedFieldForm(e))}
-                    submited={e => onSubmitEditFormHandler(e, id, name, phone, email, photo)}
-                />}
-            </div>
+            {
+                error ? <h1 style={{textAlign: 'center'}}>{error.message}</h1> :
+                    <>
+                        <div className="container Edit-page__inner">
+                            <h2 className="Title">Edit contact</h2>
+                            {name && <Form
+                                name={name}
+                                phone={phone}
+                                email={email}
+                                photo={photo}
+                                changed={e => dispatch(changedFieldForm(e))}
+                                submited={e => onSubmitEditFormHandler(e, id, name, phone, email, photo)}
+                            />}
+                        </div>
+                    </>
+            }
         </section>
     );
 };
