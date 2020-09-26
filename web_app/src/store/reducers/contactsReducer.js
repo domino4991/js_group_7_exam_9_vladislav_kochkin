@@ -13,13 +13,17 @@ export const contactsReducer = (state = initialState, action) => {
         case GET_CONTACTS_SUCCESS:
             return {
                 ...state,
-                contactsItems: action.data
+                contactsItems: action.data,
+                showModal: false
             };
         case SHOW_MODAL_FULL_CONTACT:
             return {
                 ...state,
                 showModal: !state.showModal,
-                contactInfo: state.contactsItems[action.id] ? state.contactsItems[action.id] : null
+                contactInfo: state.contactsItems[action.idItems] ? {
+                    ...state.contactsItems[action.idItems],
+                    id: action.id
+                } : null
             };
         default:
             return state;

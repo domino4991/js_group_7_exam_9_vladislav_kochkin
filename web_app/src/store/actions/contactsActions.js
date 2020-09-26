@@ -1,4 +1,9 @@
-import {GET_CONTACTS_ERROR, GET_CONTACTS_REQUEST, GET_CONTACTS_SUCCESS, SHOW_MODAL_FULL_CONTACT} from "../actionTypes";
+import {
+    GET_CONTACTS_ERROR,
+    GET_CONTACTS_REQUEST,
+    GET_CONTACTS_SUCCESS,
+    SHOW_MODAL_FULL_CONTACT
+} from "../actionTypes";
 import {axiosBase} from "../../axiosBase";
 
 const getContactsRequest = () => {
@@ -26,5 +31,5 @@ export const getContacts = () => {
 };
 
 export const showModalHandler = id => {
-    return {type: SHOW_MODAL_FULL_CONTACT, id};
+    return {type: SHOW_MODAL_FULL_CONTACT, id, idItems: id};
 };

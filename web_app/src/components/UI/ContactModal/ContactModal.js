@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactModal.css';
 import Backdrop from "../Backdrop/Backdrop";
+import {NavLink} from "react-router-dom";
 
 const ContactModal = props => {
     let phone;
@@ -32,8 +33,17 @@ const ContactModal = props => {
                             </div>
                         </div>
                         <div className="Contact-modal__btn-group">
-                        <button type="button" className="Contact-modal__edit-btn">Edit</button>
-                        <button type="button" className="Contact-modal__del-btn">Delete</button>
+                        <NavLink to={`/edit/${props.contact.id}`}
+                                 className="Contact-modal__edit-btn"
+                        >
+                            Edit
+                        </NavLink>
+                        <button
+                            type="button"
+                            className="Contact-modal__del-btn"
+                        >
+                            Delete
+                        </button>
                         </div>
                     </>
                 }
