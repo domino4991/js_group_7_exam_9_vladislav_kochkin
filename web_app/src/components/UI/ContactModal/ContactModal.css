@@ -1,0 +1,14 @@
+.Contact-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.8s;
+    z-index: 10;
+}
+
+.Contact-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
