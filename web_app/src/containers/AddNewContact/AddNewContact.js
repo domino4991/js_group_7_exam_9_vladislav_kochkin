@@ -1,6 +1,6 @@
 import React from 'react';
 import './AddNewContact.css';
-import Form from "../../components/UI/Form";
+import Form from "../../components/UI/Form/Form";
 import {useDispatch, useSelector} from "react-redux";
 import {changedFieldForm, sendNewContact} from "../../store/actions/formActions";
 
