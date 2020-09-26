@@ -2,6 +2,7 @@ import React from 'react';
 import './AddNewContact.css';
 import Form from "../../components/UI/Form";
 import {useDispatch, useSelector} from "react-redux";
+import {changedFieldForm} from "../../store/actions/formActions";
 
 const AddNewContact = () => {
     const {
@@ -21,6 +22,7 @@ const AddNewContact = () => {
                 photo={photo}
                 email={email}
                 phone={phone}
+                changed={e => dispatch(changedFieldForm(e))}
             />
         </section>
     );

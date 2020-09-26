@@ -30,7 +30,7 @@ const Form = props => {
             />
             <input
                 type="text"
-                name="image"
+                name="photo"
                 value={props.photo}
                 className="Form__filed"
                 placeholder="Enter photo link"
@@ -40,7 +40,7 @@ const Form = props => {
                 <p className="Form__img-label">Photo preview</p>
                 <div className="Form__img-box">
                     <img
-                        src={props.image}
+                        src={props.photo}
                         alt={props.name}
                         className="Form__img"
                     />
