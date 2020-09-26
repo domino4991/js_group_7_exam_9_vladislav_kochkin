@@ -1,4 +1,4 @@
-import {GET_CONTACTS_SUCCESS, SHOW_MODAL_FULL_CONTACT} from "../actionTypes";
+import {GET_CONTACTS_SUCCESS, REMOVE_CONTACT_SUCCESS, SHOW_MODAL_FULL_CONTACT} from "../actionTypes";
 
 const initialState = {
     contactsItems: null,
@@ -24,6 +24,14 @@ export const contactsReducer = (state = initialState, action) => {
                     ...state.contactsItems[action.idItems],
                     id: action.id
                 } : null
+            };
+        case REMOVE_CONTACT_SUCCESS:
+            return {
+                ...state,
+                showModal: false,
+                loading: false,
+                contactInfo: null,
+                contactsItems: action.data
             };
         default:
             return state;

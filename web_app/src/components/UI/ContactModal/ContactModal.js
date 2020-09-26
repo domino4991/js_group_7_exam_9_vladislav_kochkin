@@ -4,6 +4,7 @@ import Backdrop from "../Backdrop/Backdrop";
 import {NavLink} from "react-router-dom";
 
 const ContactModal = props => {
+
     let phone;
     let phoneCopy = props.contact.phone;
     if(Number(phoneCopy[0]) === 0) {
@@ -41,6 +42,7 @@ const ContactModal = props => {
                         <button
                             type="button"
                             className="Contact-modal__del-btn"
+                            onClick={props.clicked}
                         >
                             Delete
                         </button>
