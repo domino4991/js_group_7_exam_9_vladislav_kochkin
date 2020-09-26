@@ -12,7 +12,7 @@ const ContactItem = props => {
                         className="Contact-item__img"
                     />
                 </div>
-                <p className="Contact-item__name">{props.name}</p>
+                <h4 className="Contact-item__name">{props.name}</h4>
             </div>
         </button>
     );

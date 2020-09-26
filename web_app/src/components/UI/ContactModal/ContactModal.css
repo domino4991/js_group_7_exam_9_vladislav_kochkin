@@ -7,8 +7,96 @@
     border-radius: 10px;
     transition: 0.8s;
     z-index: 10;
+    padding: 20px;
+    width: 500px;
 }
 
 .Contact-modal.active {
     transform: translate(-50%, -50%) scale(1);
+}
+
+.Contact-modal__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #263238;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.Contact-modal__img-box {
+    height: 150px;
+}
+
+.Contact-modal__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.Contact-modal__info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    border-left: 1px solid #263238;
+}
+
+.Contact-modal__title {
+    margin-bottom: 15px;
+}
+
+.Contact-modal__link {
+    text-decoration: none;
+    color: #263238;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.Contact-modal__link svg {
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.Contact-modal__btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contact-modal__edit-btn,
+.Contact-modal__del-btn {
+    text-decoration: none;
+    color: #eceff1;
+    background: #009688;
+    padding: 10px 13px;
+    border-radius: 5px;
+    margin-right: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+}
+
+.Contact-modal__del-btn {
+    background: #b71c1c;
+    border: none;
+    padding: 12px 13px;
+    cursor: pointer;
+}
+
+.Contact-modal__edit-btn:hover {
+    background: #00bcd4;
+}
+
+.Contact-modal__del-btn:hover {
+    background: #d32f2f;
+}
+
+.Contact-modal__edit-btn svg,
+.Contact-modal__del-btn svg {
+    font-size: 24px;
+    margin-right: 10px;
 }

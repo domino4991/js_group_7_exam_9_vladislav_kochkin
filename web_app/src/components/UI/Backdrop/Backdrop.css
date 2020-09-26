@@ -1,5 +1,5 @@
 .Backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -8,6 +8,7 @@
     z-index: 5;
     transform: scale(0);
     transition: 0.6s;
+    overflow: hidden;
 }
 
 .Backdrop.active {

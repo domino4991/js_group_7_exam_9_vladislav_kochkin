@@ -1,0 +1,40 @@
+.Header {
+    background: #263238;
+    color: #eceff1;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.Header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Logo {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.Header__nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.Header__nav-item {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.Header__nav-link {
+    text-decoration: none;
+    color: #eceff1;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.Header__nav-link:hover,
+.Header__nav-link.active {
+    color: #4caf50;
+}

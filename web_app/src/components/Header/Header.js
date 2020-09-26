@@ -12,7 +12,7 @@ const Header = () => {
                         <li className="Header__nav-item">
                             <NavLink
                                 to='/'
-                                className="Header__link"
+                                className="Header__nav-link"
                                 exact
                             >
                                 Contacts
@@ -21,7 +21,7 @@ const Header = () => {
                         <li className="Header__nav-item">
                             <NavLink
                                 to='/add-new-contact'
-                                className="Header__link"
+                                className="Header__nav-link"
                                 exact
                             >
                                 Add new contact

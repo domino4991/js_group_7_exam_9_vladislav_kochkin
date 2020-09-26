@@ -14,7 +14,8 @@ export const contactsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 contactsItems: action.data,
-                showModal: false
+                showModal: false,
+                contactInfo: null,
             };
         case SHOW_MODAL_FULL_CONTACT:
             return {
