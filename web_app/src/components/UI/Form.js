@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 const Form = props => {
     return (
-        <form className="Form">
+        <form className="Form" onSubmit={props.submited}>
             <input
                 type="text"
                 name="name"
