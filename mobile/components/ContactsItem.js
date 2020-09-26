@@ -15,7 +15,7 @@ const ContactsItem = props => {
                         }}
                         style={styles.infoBoxImg}
                     />
-                    <Text style={{textAlign: 'center', flex: 1, fontSize: 18}}>{props.name}</Text>
+                    <Text style={{textAlign: 'center', flex: 1, fontSize: 18, color: '#eceff1'}}>{props.name}</Text>
                 </View>
             </View>
         </TouchableOpacity>

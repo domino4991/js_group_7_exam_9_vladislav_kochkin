@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Modal, Image, Linking, TouchableOpa
 import {useDispatch, useSelector} from "react-redux";
 import ContactsItem from "../../components/ContactsItem";
 import {closeModalHandler, getContactId, getContacts} from "../../store/actions";
+import {StatusBar} from "expo-status-bar";
 
 const Main = () => {
     const {
@@ -18,75 +19,83 @@ const Main = () => {
     }, [dispatch]);
 
     return (
-        <View style={styles.container}>
-            {error ? <Text>{error.message}</Text> :
-                (
-                    <>
-                        <Modal
-                            animationType="fade"
-                            visible={showModal}
-                        >
-                            <View style={styles.centeredView}>
+        <>
+            <View style={styles.container}>
+                {error ? <Text>{error.message}</Text> :
+                    (
+                        <>
+                            <Modal
+                                animationType="fade"
+                                visible={showModal}
+                            >
+                                <View style={styles.centeredView}>
 
-                                <View style={styles.modalView}>
-                                    <View style={styles.modalContent}>
-                                        {
-                                            contactInfo &&
-                                            <>
-                                                <Text style={{
-                                                    fontSize: 30,
-                                                    fontWeight: 'bold'
-                                                }}>{contactInfo.name}</Text>
-                                                <Image
-                                                    source={{
-                                                        uri: contactInfo.photo
+                                    <View style={styles.modalView}>
+                                        <View style={styles.modalContent}>
+                                            {
+                                                contactInfo &&
+                                                <>
+                                                    <Text style={{
+                                                        fontSize: 30,
+                                                        fontWeight: 'bold',
+                                                        color: '#eceff1'
                                                     }}
-                                                    style={styles.modalImg}
-                                                />
-                                                <Text
-                                                    onPress={() => Linking.openURL(`tel:${contactInfo.phone}`)}
-                                                    style={{
-                                                        marginBottom: 20,
-                                                        fontSize: 20
-                                                    }}
-                                                >
-                                                    Phone: {contactInfo.phone}
-                                                </Text>
-                                                <Text
-                                                    onPress={() => Linking.openURL(`mailto:${contactInfo.email}`)}
-                                                    style={{
-                                                        marginBottom: 20,
-                                                        fontSize: 20
-                                                    }}
-                                                >
-                                                    Email: {contactInfo.email}
-                                                </Text>
-                                            </>
-                                        }
+                                                    >
+                                                        {contactInfo.name}
+                                                    </Text>
+                                                    <Image
+                                                        source={{
+                                                            uri: contactInfo.photo
+                                                        }}
+                                                        style={styles.modalImg}
+                                                    />
+                                                    <Text
+                                                        onPress={() => Linking.openURL(`tel:${contactInfo.phone}`)}
+                                                        style={{
+                                                            marginBottom: 20,
+                                                            fontSize: 20,
+                                                            color: '#eceff1'
+                                                        }}
+                                                    >
+                                                        Phone: {contactInfo.phone}
+                                                    </Text>
+                                                    <Text
+                                                        onPress={() => Linking.openURL(`mailto:${contactInfo.email}`)}
+                                                        style={{
+                                                            marginBottom: 20,
+                                                            fontSize: 20,
+                                                            color: '#eceff1'
+                                                        }}
+                                                    >
+                                                        Email: {contactInfo.email}
+                                                    </Text>
+                                                </>
+                                            }
+                                        </View>
+                                        <TouchableOpacity
+                                            style={styles.modalBtn}
+                                            onPress={() => dispatch(closeModalHandler())}
+                                        >
+                                            <Text>Back to list</Text>
+                                        </TouchableOpacity>
                                     </View>
-                                    <TouchableOpacity
-                                        style={styles.modalBtn}
-                                        onPress={() => dispatch(closeModalHandler())}
-                                    >
-                                        <Text>Back to list</Text>
-                                    </TouchableOpacity>
                                 </View>
-                            </View>
-                        </Modal>
-                        <Text style={{fontSize: 20, paddingTop: 20, paddingBottom: 20}}>Contacts list</Text>
-                        <ScrollView style={styles.scrollContainer}>
-                        {contactsItems && Object.keys(contactsItems).map(item => <ContactsItem
-                            key={item}
-                            name={contactsItems[item].name}
-                            photo={contactsItems[item].photo}
-                            pressed={() => dispatch(getContactId(item))}
-                        />)}
-                        </ScrollView>
-                    </>
-                )
-            }
-
-        </View>
+                            </Modal>
+                            <Text style={{fontSize: 20, paddingTop: 20, paddingBottom: 20, color: '#eceff1'}}>Contacts list</Text>
+                            <ScrollView style={styles.scrollContainer}>
+                            {contactsItems && Object.keys(contactsItems).map(item => <ContactsItem
+                                key={item}
+                                name={contactsItems[item].name}
+                                photo={contactsItems[item].photo}
+                                pressed={() => dispatch(getContactId(item))}
+                            />)}
+                            </ScrollView>
+                        </>
+                    )
+                }
+            </View>
+            <StatusBar style="light" />
+        </>
     );
 };
 
@@ -96,7 +105,8 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         alignItems: 'center',
-        paddingTop: 40
+        paddingTop: 40,
+        backgroundColor: '#212121'
     },
     scrollContainer: {
         width: '100%',
@@ -112,7 +122,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalContent: {
-        height: '90%',
+        height: '88%',
         width: '95%',
         alignItems: 'center',
     },
