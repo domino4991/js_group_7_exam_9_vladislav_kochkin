@@ -21,7 +21,6 @@ export const getContacts = () => {
 };
 
 export const getContactId = id => {
-    console.log(id);
     return {type: GET_CONTACT_ID, id};
 };
 
