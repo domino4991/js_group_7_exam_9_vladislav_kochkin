@@ -3,7 +3,7 @@ import './Backdrop.css';
 
 const Backdrop = props => {
     return (
-        <div className={props.show ? 'Backdrop active' : 'Backdrop'} />
+        <div className={props.show ? 'Backdrop active' : 'Backdrop'} onClick={props.closed}/>
     );
 };
 

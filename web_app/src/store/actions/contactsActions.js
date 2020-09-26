@@ -25,6 +25,6 @@ export const getContacts = () => {
     };
 };
 
-export const showModal = id => {
+export const showModalHandler = id => {
     return {type: SHOW_MODAL_FULL_CONTACT, id};
 };

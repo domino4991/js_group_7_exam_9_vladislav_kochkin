@@ -19,7 +19,7 @@ export const contactsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 showModal: !state.showModal,
-                contactInfo: state.contactsItems[action.id]
+                contactInfo: state.contactsItems[action.id] ? state.contactsItems[action.id] : null
             };
         default:
             return state;
